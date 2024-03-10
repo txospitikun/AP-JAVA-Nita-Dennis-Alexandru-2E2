@@ -1,0 +1,15 @@
+
+u	java:S135L"YReduce the total number of break and continue statements in this loop to use at most one.(Ï»¾Œ8ïŠùÎà1
+
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‚åªî8ÅæöÎà1
+’
+java:S13197"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ù¥Ãôıÿÿÿÿ8ÅæöÎà1
+r	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯®½øÿÿÿÿ8ÅæöÎà1
+g
+java:S2259i"JA "NullPointerException" could be thrown; "closestDepot" is nullable here.(º—øÅ8×æöÎà1
+t	java:S116"SRename this field "m_depots" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸µ¤Åúÿÿÿÿ8×æöÎà1
+u	java:S116"TRename this field "m_clients" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»¨Õûÿÿÿÿ8×æöÎà1
+t
+java:S3776C"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(äöàùÿÿÿÿ8áæöÎà1
+@
+java:S2119F"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8ãæöÎà1

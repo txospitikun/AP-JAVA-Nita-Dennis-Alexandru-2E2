@@ -1,0 +1,9 @@
+
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”¡“½ùÿÿÿÿ
+f	java:S117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôú‡æ
+k	java:S116"QRename this field "m_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëœ¢Áþÿÿÿÿ
+j	java:S116"URename this field "m_vehicles" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üÄ›¼
+k
+java:S1206I"PThis class overrides "equals()" and should therefore also override "hashCode()".(Ý¢êÍýÿÿÿÿ
+F
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
