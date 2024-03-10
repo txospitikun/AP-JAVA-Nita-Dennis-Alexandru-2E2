@@ -44,6 +44,7 @@ public class Main {
         //HOMEWORK
         String result = problem.assign();
 
+
         System.out.println(result);
 
         System.out.println(client1);
@@ -52,5 +53,11 @@ public class Main {
         System.out.println(vehicle1);
 
         System.out.println(depot2);
+
+        System.out.printf("%n%n%n");
+
+        //BONUS
+
+        problem.bonus();
     }
 }

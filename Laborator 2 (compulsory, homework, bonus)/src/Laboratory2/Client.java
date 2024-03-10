@@ -139,8 +139,8 @@ public class Client
     {
         Random rand = new Random();
 
-        this.positionX = rand.nextFloat(1000);
-        this.positionY = rand.nextFloat(1000);
+        this.positionX = rand.nextFloat(30);
+        this.positionY = rand.nextFloat(30);
     }
 
     /**

@@ -188,66 +188,300 @@ public class Problem
     /**
      * The bonus part of the laboratory.
      */
-    public void Bonus()
+    class Edge
     {
-        class Node
-        {
-            public int type = 0; //0 - client, 1 - depot
-            public int positionX;
-            public int positionY;
+        public Node directNeighbour;
+        public int cost;
 
-            public Node(int x, int y, int type)
-            {
-                this.positionX = x;
-                this.positionY = y;
-                this.type = type;
-            }
+        public Edge(Node value, int cost)
+        {
+            this.cost = cost;
+            this.directNeighbour = value;
+        }
+    }
+    class Node<T> {
+        public int nodeType = -1; // 0-transport node 1-client, 2-depot
+        public T storedObject = null;
+        public int posX, posY;
+        public Set<Edge> neighbours = new HashSet<>();
+        public int distance = Integer.MAX_VALUE;
+
+        public List<Node> shortestPath = new LinkedList<>();
+
+        public Node(int value) {
+            this.nodeType = value;
         }
 
-        class Edge
-        {
-            public Node source;
-            public Node dest;
-            public int weight = 0;
-            public Edge(Node s, Node d, int w)
-            {
-                this.source = s;
-                this.dest = d;
-                this.weight = w;
-            }
+        public Node(int value, T obj, int x, int y) {
+            this.nodeType = value;
+            this.storedObject = obj;
+            this.posX = x; this.posY = y;
         }
 
-        class Graph
-        {
-            Map<Node, List<Edge>> list = new HashMap<>();
-
-            public void addNode(Node value)
-            {
-                list.put(value, new ArrayList<>());
-            }
-
-            public void addEdge(Node s, Node d, int w)
-            {
-                Edge newEdge = new Edge(s, d, w);
-                list.get(s).add(newEdge);
-                list.get(d).add(newEdge);
-            }
+        public Node(int value, int x, int y) {
+            this.nodeType = value;
+            this.storedObject = null;
+            this.posX = x; this.posY = y;
         }
 
-        Graph lineGraph = new Graph();
 
-        for(int i = 0; i < m_clients.size(); i++)
-        {
-            Node newNode = new Node((int)m_clients.get(i).positionX, (int)m_clients.get(i).positionY, 0);
-            lineGraph.addNode(newNode);
-        }
-
-        for(int i = 0; i < m_depots.size(); i++)
-        {
-            Node newNode = new Node((int)m_depots.get(i).positionX, (int)m_depots.get(i).positionY, 1);
-            lineGraph.addNode(newNode);
+        public boolean addEdge(Edge value) {
+            return neighbours.add(value);
         }
     }
 
 
+    class Graph {
+        public Set<Node> nodes;
+
+        public Graph() {
+            nodes = new HashSet<>();
+        }
+
+        boolean addNode(Node value) {
+            return nodes.add(value);
+        }
+    }
+
+    public void bonus() {
+        //random
+        Random random = new Random();
+
+        //get the furthest node from top left corner
+        int maxPositionX = -1;
+        int maxPositionY = -1;
+
+        for (var c : m_clients) {
+            if (c.positionX > maxPositionX) {
+                maxPositionX = (int) c.positionX;
+            }
+
+            if (c.positionY > maxPositionY) {
+                maxPositionY = (int) c.positionY;
+            }
+        }
+
+        for (var d : m_depots) {
+            if (d.positionX > maxPositionX) {
+                maxPositionX = (int) d.positionX;
+            }
+
+            if (d.positionY > maxPositionY) {
+                maxPositionY = (int) d.positionY;
+            }
+        }
+
+        System.out.printf("X: %d, Y: %d%n", maxPositionX, maxPositionY);
+        Graph lineGraph = new Graph();
+        Node[][] constructedNodes = new Node[maxPositionY + 1][maxPositionX + 1];
+
+
+        //constructing the line graph
+        for (var c : m_clients) {
+            constructedNodes[(int) c.positionY][(int) c.positionX] = new Node<Client>(1, c, (int)c.positionX, (int)c.positionY);
+        }
+
+        for (var d : m_depots) {
+            constructedNodes[(int) d.positionY][(int) d.positionX] = new Node<Depot>(2, d, (int)d.positionX, (int)d.positionY);
+        }
+
+        for (int i = 0; i < maxPositionY; i++) {
+            for (int j = 0; j < maxPositionX; j++) {
+                if (constructedNodes[i][j] == null) {
+                    constructedNodes[i][j] = new Node<String>(0, i, j);
+                }
+            }
+        }
+
+        //costructing the weighted edges
+        int randomCost = -1;
+        for (int i = 0; i < maxPositionY; i++) {
+            for (int j = 0; j < maxPositionX; j++) {
+                // center of the linegraph
+
+                if (i > 0 && i < maxPositionY - 1 && j > 0 && j < maxPositionX - 1) {
+                    randomCost = random.nextInt(100);
+                    constructedNodes[i][j].addEdge(new Edge(constructedNodes[i - 1][j], randomCost));
+                    constructedNodes[i - 1][j].addEdge(new Edge(constructedNodes[i][j], randomCost));
+
+                    randomCost = random.nextInt(100);
+                    constructedNodes[i][j].addEdge(new Edge(constructedNodes[i + 1][j], randomCost));
+                    constructedNodes[i + 1][j].addEdge(new Edge(constructedNodes[i][j], randomCost));
+
+                    randomCost = random.nextInt(100);
+                    constructedNodes[i][j - 1].addEdge(new Edge(constructedNodes[i][j], randomCost));
+                    constructedNodes[i][j].addEdge(new Edge(constructedNodes[i][j - 1], randomCost));
+
+                    randomCost = random.nextInt(100);
+                    constructedNodes[i][j + 1].addEdge(new Edge(constructedNodes[i][j], randomCost));
+                    constructedNodes[i][j].addEdge(new Edge(constructedNodes[i][j + 1], randomCost));
+                }
+            }
+        }
+        for (int i = 1; i < maxPositionY - 1; i++) {
+            randomCost = random.nextInt(100);
+            constructedNodes[i][0].addEdge(new Edge(constructedNodes[i - 1][1], randomCost));
+            constructedNodes[i - 1][0].addEdge(new Edge(constructedNodes[i][0], randomCost));
+
+            randomCost = random.nextInt(100);
+            constructedNodes[i][0].addEdge(new Edge(constructedNodes[i + 1][0], randomCost));
+            constructedNodes[i + 1][0].addEdge(new Edge(constructedNodes[i][0], randomCost));
+
+            randomCost = random.nextInt(100);
+            constructedNodes[i][0].addEdge(new Edge(constructedNodes[i][1], randomCost));
+            constructedNodes[i][1].addEdge(new Edge(constructedNodes[i][0], randomCost));
+        }
+
+        for (int i = 1; i < maxPositionY - 1; i++) {
+            randomCost = random.nextInt(100);
+            constructedNodes[i][maxPositionX - 1].addEdge(new Edge(constructedNodes[i - 1][maxPositionX - 1], randomCost));
+            constructedNodes[i - 1][maxPositionX - 1].addEdge(new Edge(constructedNodes[i][maxPositionX - 1], randomCost));
+
+            randomCost = random.nextInt(100);
+            constructedNodes[i][maxPositionX - 1].addEdge(new Edge(constructedNodes[i + 1][maxPositionX - 1], randomCost));
+            constructedNodes[i + 1][maxPositionX - 1].addEdge(new Edge(constructedNodes[i][maxPositionX - 1], randomCost));
+
+            randomCost = random.nextInt(100);
+            constructedNodes[i][0].addEdge(new Edge(constructedNodes[i][maxPositionX - 2], randomCost));
+            constructedNodes[i][maxPositionX - 2].addEdge(new Edge(constructedNodes[i][0], randomCost));
+        }
+
+        for (int i = 1; i < maxPositionX - 1; i++) {
+            randomCost = random.nextInt(100);
+            constructedNodes[0][i].addEdge(new Edge(constructedNodes[0][i - 1], randomCost));
+            constructedNodes[0][i - 1].addEdge(new Edge(constructedNodes[0][i], randomCost));
+
+            randomCost = random.nextInt(100);
+            constructedNodes[0][i].addEdge(new Edge(constructedNodes[0][i + 1], randomCost));
+            constructedNodes[0][i + 1].addEdge(new Edge(constructedNodes[0][i], randomCost));
+
+            randomCost = random.nextInt(100);
+            constructedNodes[0][i].addEdge(new Edge(constructedNodes[1][i], randomCost));
+            constructedNodes[1][i].addEdge(new Edge(constructedNodes[0][i], randomCost));
+        }
+
+        for (int i = 1; i < maxPositionX - 1; i++) {
+            randomCost = random.nextInt(100);
+            constructedNodes[maxPositionY - 1][i].addEdge(new Edge(constructedNodes[maxPositionY - 1][i - 1], randomCost));
+            constructedNodes[maxPositionY - 1][i - 1].addEdge(new Edge(constructedNodes[maxPositionY - 1][i], randomCost));
+
+            randomCost = random.nextInt(100);
+            constructedNodes[maxPositionY - 1][i].addEdge(new Edge(constructedNodes[maxPositionY - 1][i + 1], randomCost));
+            constructedNodes[maxPositionY - 1][i + 1].addEdge(new Edge(constructedNodes[maxPositionY - 1][i], randomCost));
+
+            randomCost = random.nextInt(100);
+            constructedNodes[0][i].addEdge(new Edge(constructedNodes[maxPositionY - 2][i], randomCost));
+            constructedNodes[maxPositionY - 2][i].addEdge(new Edge(constructedNodes[0][i], randomCost));
+        }
+
+        // corners of line graph
+        // left top
+        randomCost = random.nextInt(100);
+        constructedNodes[0][0].addEdge(new Edge(constructedNodes[0][1], randomCost));
+        constructedNodes[0][1].addEdge(new Edge(constructedNodes[0][0], randomCost));
+
+        randomCost = random.nextInt(100);
+        constructedNodes[0][0].addEdge(new Edge(constructedNodes[1][0], randomCost));
+        constructedNodes[1][0].addEdge(new Edge(constructedNodes[0][0], randomCost));
+
+        // right top
+        randomCost = random.nextInt(100);
+        constructedNodes[0][maxPositionX - 1].addEdge(new Edge(constructedNodes[0][maxPositionX - 2], randomCost));
+        constructedNodes[0][maxPositionX - 2].addEdge(new Edge(constructedNodes[0][maxPositionX - 1], randomCost));
+
+        randomCost = random.nextInt(100);
+        constructedNodes[0][maxPositionX - 1].addEdge(new Edge(constructedNodes[1][maxPositionX - 1], randomCost));
+        constructedNodes[1][maxPositionX - 1].addEdge(new Edge(constructedNodes[0][maxPositionX - 1], randomCost));
+
+        // left bottom
+        randomCost = random.nextInt(100);
+        constructedNodes[maxPositionY - 1][0].addEdge(new Edge(constructedNodes[maxPositionY - 2][0], randomCost));
+        constructedNodes[maxPositionY - 2][0].addEdge(new Edge(constructedNodes[maxPositionY - 1][0], randomCost));
+
+        randomCost = random.nextInt(100);
+        constructedNodes[maxPositionY - 1][0].addEdge(new Edge(constructedNodes[maxPositionY - 1][1], randomCost));
+        constructedNodes[maxPositionY - 1][1].addEdge(new Edge(constructedNodes[maxPositionY - 1][0], randomCost));
+
+        //right bottom
+        randomCost = random.nextInt(100);
+        constructedNodes[maxPositionY - 1][maxPositionX - 1].addEdge(new Edge(constructedNodes[maxPositionY - 2][maxPositionX - 1], randomCost));
+        constructedNodes[maxPositionY - 2][maxPositionX - 1].addEdge(new Edge(constructedNodes[maxPositionY - 1][maxPositionX - 1], randomCost));
+
+        randomCost = random.nextInt(100);
+        constructedNodes[maxPositionY - 1][maxPositionX - 1].addEdge(new Edge(constructedNodes[maxPositionY - 1][maxPositionX - 2], randomCost));
+        constructedNodes[maxPositionY - 1][maxPositionX - 2].addEdge(new Edge(constructedNodes[maxPositionY - 1][maxPositionX - 1], randomCost));
+
+        //setting types for nodes and identifiers
+        //constructing paths from each depot
+        //find depots
+        for (int i = 0; i < maxPositionY; i++) {
+            for (int j = 0; j < maxPositionX; j++) {
+                if (constructedNodes[i][j].nodeType == 2) // i found a depot
+                {
+                    constructedNodes[i][j].distance = 0;
+
+                    Set<Node> visited = new HashSet<>();
+                    Set<Node> unvisited = new HashSet<>();
+
+                    unvisited.add(constructedNodes[i][j]);
+
+                    while (unvisited.size() != 0) {
+                        Node closestNode = null;
+                        int closestDistance = Integer.MAX_VALUE;
+                        for (var node : unvisited) {
+                            int distance = node.distance;
+                            if (distance < closestDistance) {
+                                closestDistance = distance;
+                                closestNode = node;
+                            }
+                        }
+                        unvisited.remove(closestNode);
+                        assert closestNode != null;
+                        for (Object nodeEdge : closestNode.neighbours) {
+                            Edge x = (Edge) (nodeEdge);
+                            Node adiacentNode = x.directNeighbour;
+                            int price = x.cost;
+                            if (!visited.contains(adiacentNode)) {
+                                int sourceDistance = closestNode.distance;
+                                if (sourceDistance + price < adiacentNode.distance) {
+                                    adiacentNode.distance = sourceDistance + price;
+                                    LinkedList<Node> shortestPath = new LinkedList<>(closestNode.shortestPath);
+                                    shortestPath.add(closestNode);
+                                    adiacentNode.shortestPath = shortestPath;
+                                }
+                            }
+                        }
+                        visited.add(closestNode);
+                    }
+                }
+            }
+        }
+
+        for(int i = 0; i < maxPositionY; i++)
+        {
+            boolean foundClient = false;
+            for(int j = 0; j < maxPositionX; j++)
+            {
+                if(constructedNodes[i][j].nodeType != 1)
+                {
+                    continue;
+                }
+                foundClient = true;
+                var aux = constructedNodes[i][j].shortestPath;
+                System.out.printf("Path from Depot to Client: %s at X:%d, Y:%d%n ", ((Client)(constructedNodes[i][j].storedObject)).getName(), i, j);
+                for(Object node : aux)
+                {
+                    var p = (Node)(node);
+                    if(p.nodeType == 0)
+                    {
+                        System.out.printf(" -> (tran) X:%d Y:%d ", p.posX, p.posY);
+                    }
+                    if(p.nodeType > 0)
+                    System.out.printf(" -> (client: %s) %d %d ", ((Client)p.storedObject).getName(), p.posX, p.posY);
+                }
+            }
+            if(foundClient)
+                System.out.println();
+        }
+    }
 }
