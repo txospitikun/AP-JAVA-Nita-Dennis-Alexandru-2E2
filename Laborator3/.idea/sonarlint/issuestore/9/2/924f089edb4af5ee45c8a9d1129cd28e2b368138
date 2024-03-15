@@ -1,0 +1,13 @@
+
+c
+java:S1854	"ARemove this useless assignment to local variable "northenChurch".(’β§Òψÿÿÿÿ8α¥τοβ1
+c
+java:S1854"ARemove this useless assignment to local variable "northenStatue".(ονίϋÿÿÿÿ8α¥τοβ1
+[
+java:S1854">Remove this useless assignment to local variable "eastStatue".(²Ξοε8“ΡΧπβ1
+L
+java:S1481"/Remove this unused "eastStatue" local variable.(²Ξοε8ε¥τοβ1
+T
+java:S1481"2Remove this unused "northenStatue" local variable.(ονίϋÿÿÿÿ8—ΡΧπβ1
+T
+java:S1481	"2Remove this unused "northenChurch" local variable.(’β§Òψÿÿÿÿ8ε¥τοβ1
