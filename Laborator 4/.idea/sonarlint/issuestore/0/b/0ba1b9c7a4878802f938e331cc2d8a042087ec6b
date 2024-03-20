@@ -1,0 +1,12 @@
+
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(θή―γ8ύ¦θε1
+b
+java:S1612"EReplace this lambda with method reference 'Driver.class::isInstance'.(…ςΙΗ8¥ύ¦θε1
+G
+java:S1905"*Remove this unnecessary cast to "Integer".(–α€ÿ8¦ύ¦θε1
+o
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(»γΊ¤8»½§θε1
+e
+java:S1612"HReplace this lambda with method reference 'Passenger.class::isInstance'.(»γΊ¤8»½§θε1
+G	java:S106""+Replace this use of System.out by a logger.(ÿµξ8¦ύ¦θε1
+L	java:S106'"+Replace this use of System.out by a logger.(Ρ•΅Πώÿÿÿÿ8§ύ¦θε1
