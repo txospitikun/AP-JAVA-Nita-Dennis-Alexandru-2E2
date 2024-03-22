@@ -8,6 +8,8 @@ public abstract class Attraction implements Comparable<Attraction>
 {
     private String name;
 
+    public int saturationGrade = 0;
+
     private int ticketPrice = -1;
     protected Map<WeekDay, TimeInterval> timetable;
     public Attraction(String value)

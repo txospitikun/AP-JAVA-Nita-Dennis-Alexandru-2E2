@@ -1,24 +1,36 @@
 
 p
-java:S1104"SMake adjList a static final constant or non-public and provide accessors if needed.(øúÜ¢8ÃÕ“”ä1
+java:S1104"SMake adjList a static final constant or non-public and provide accessors if needed.(øúÜ¢8¡½›¶æ1
 s
-java:S1104L"QMake graph a static final constant or non-public and provide accessors if needed.(ÑŠª¸üÿÿÿÿ8ÃÕ“”ä1
+java:S1104I"QMake graph a static final constant or non-public and provide accessors if needed.(ÑŠª¸üÿÿÿÿ8¢½›¶æ1
 v
-java:S1104M"TMake coloring a static final constant or non-public and provide accessors if needed.(”¤ø‡ÿÿÿÿÿ8ÃÕ“”ä1
+java:S1104J"TMake coloring a static final constant or non-public and provide accessors if needed.(”¤ø‡ÿÿÿÿÿ8¢½›¶æ1
 9
-java:S1700M"Rename field "coloring"(”¤ø‡ÿÿÿÿÿ8ÃÕ“”ä1
-7
-java:S1220""Move this file to a named package.8ÄÕ“”ä1
+java:S1700J"Rename field "coloring"(”¤ø‡ÿÿÿÿÿ8¥½›¶æ1
 \
-java:S1118":Add a private constructor to hide the implicit public one.(ê¡õÿûÿÿÿÿ8èÕ“”ä1
-G	java:S1062"+Replace this use of System.out by a logger.(ŞÏ×¤8ëÕ“”ä1
+java:S1118":Add a private constructor to hide the implicit public one.(ê¡õÿûÿÿÿÿ8‰À›¶æ1
+G	java:S106/"+Replace this use of System.out by a logger.(ŞÏ×¤8’À›¶æ1
+l
+java:S21758"JA "Map<WeekDay, TimeInterval>" cannot contain a "Set" in a "WeekDay" type.(¦ËÎ©ıÿÿÿÿ8•À›¶æ1
+l
+java:S21758"JA "Map<WeekDay, TimeInterval>" cannot contain a "Set" in a "WeekDay" type.(¦ËÎ©ıÿÿÿÿ8•À›¶æ1
 o
-java:S3776U"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(¬–²§8ÆÚ¦”ä1
-G	java:S106r"+Replace this use of System.out by a logger.(ÿŞ‰¥8íÕ“”ä1
-G	java:S106s"+Replace this use of System.out by a logger.(£İÓ8îÕ“”ä1
+java:S3776R"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(à’öì8›À›¶æ1
+G	java:S106o"+Replace this use of System.out by a logger.(ÿŞ‰¥8 À›¶æ1
+G	java:S106p"+Replace this use of System.out by a logger.(£İÓ8 À›¶æ1
 N
-java:S1481{",Remove this unused "counter" local variable.(Æ«Ûìúÿÿÿÿ8áè“”ä1
+java:S1481x",Remove this unused "counter" local variable.(Æ«Ûìúÿÿÿÿ8¢À›¶æ1
 P
-java:S1481|".Remove this unused "nextColor" local variable.(€­àŸşÿÿÿÿ8îÕ“”ä1
-H	java:S106€"+Replace this use of System.out by a logger.(«¯·İ8îÕ“”ä1
-H	java:S106›"+Replace this use of System.out by a logger.(ç’¤™8éä¤”ä1
+java:S1481y".Remove this unused "nextColor" local variable.(€­àŸşÿÿÿÿ8¢À›¶æ1
+H	java:S106¡"+Replace this use of System.out by a logger.(ÃÄæõ8§À›¶æ1
+u
+java:S3776¦"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(¯ÈÊËÿÿÿÿÿ8¨À›¶æ1
+H	java:S106Ï"+Replace this use of System.out by a logger.(ÿŞ‰¥8­À›¶æ1
+H	java:S106Ğ"+Replace this use of System.out by a logger.(£İÓ8®À›¶æ1
+O
+java:S1481Ø",Remove this unused "counter" local variable.(Æ«Ûìúÿÿÿÿ8¯À›¶æ1
+Q
+java:S1481Ù".Remove this unused "nextColor" local variable.(€­àŸşÿÿÿÿ8°À›¶æ1
+H	java:S106"+Replace this use of System.out by a logger.(ÃÄæõ8´À›¶æ1
+é
+java:S6541¦"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 78 to 64, Complexity from 17 to 14, Nesting Level from 3 to 2, Number of Variables from 25 to 6.(¯ÈÊËÿÿÿÿÿ8µÀ›¶æ1

@@ -18,14 +18,14 @@ public class Main
                     new Pair<WeekDay, TimeInterval>(WeekDay.TUESDAY, new TimeInterval(LocalTime.of(12, 0), LocalTime.of(19, 0))),
                     new Pair<WeekDay, TimeInterval>(WeekDay.WEDNESDAY, new TimeInterval(LocalTime.of(12, 0), LocalTime.of(19, 0)))
                 );
-        Statue statue2 = new Statue("Johnatan Emanuele");
+        Statue statue2 = new Statue("Bustul lui Caragiale");
         statue2.setTimetable
                 (
                         new Pair<WeekDay, TimeInterval>(WeekDay.TUESDAY, new TimeInterval(LocalTime.of(8, 0), LocalTime.of(12, 0))),
                         new Pair<WeekDay, TimeInterval>(WeekDay.SATURDAY, new TimeInterval(LocalTime.of(12, 0), LocalTime.of(19, 0))),
                         new Pair<WeekDay, TimeInterval>(WeekDay.SUNDAY, new TimeInterval(LocalTime.of(12, 0), LocalTime.of(19, 0)))
                 );
-        Church church1 = new Church("Prahovia Domnului");
+        Church church1 = new Church("Biserica Domnului");
         church1.setTimetable
                 (
                         new Pair<WeekDay, TimeInterval>(WeekDay.WEDNESDAY, new TimeInterval(LocalTime.of(10, 0), LocalTime.of(20, 0)))
@@ -37,7 +37,7 @@ public class Main
                 );
         concert1.setTicketPrice(20);
 
-        Concert concert2 = new Concert("Iasi Concert");
+        Concert concert2 = new Concert("Zilele insulei Bacau");
         concert2.setTimetable
                 (
                         new Pair<WeekDay, TimeInterval>(WeekDay.MONDAY, new TimeInterval(LocalTime.of(21, 0), LocalTime.of(3, 0))),
@@ -65,10 +65,8 @@ public class Main
         bonusGraph.generateEdges();
 
         Bonus.Coloring coloringGraph = new Bonus.Coloring(bonusGraph);
-        coloringGraph.color();
+        coloringGraph.colorHighestNode();
 
-
-
-
+        coloringGraph.colorGreedy();
     }
 }
