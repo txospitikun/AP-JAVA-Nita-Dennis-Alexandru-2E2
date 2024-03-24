@@ -1,8 +1,11 @@
 
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èŞ¯ã8öé´µæ1
-b
-java:S1612"EReplace this lambda with method reference 'Driver.class::isInstance'.(…òÉÇ8ê´µæ1
-e
-java:S1612"HReplace this lambda with method reference 'Passenger.class::isInstance'.(»ãº¤8’ê´µæ1
-G	java:S106""+Replace this use of System.out by a logger.(Ÿÿµî8•ê´µæ1
-L	java:S106'"+Replace this use of System.out by a logger.(Ñ•¡Ğşÿÿÿÿ8—ê´µæ1
+t
+java:S62040"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¢Õ÷§ıÿÿÿÿ8­œ€ç1
+g
+java:S16120"EReplace this lambda with method reference 'Driver.class::isInstance'.(¢Õ÷§ıÿÿÿÿ8®œ€ç1
+j
+java:S16122"HReplace this lambda with method reference 'Passenger.class::isInstance'.(³Ñã“şÿÿÿÿ8®œ€ç1
+G	java:S1067"+Replace this use of System.out by a logger.(ˆ¯À”8¯œ€ç1
+L	java:S106<"+Replace this use of System.out by a logger.(¾§çöşÿÿÿÿ8¯œ€ç1
+G	java:S106B"+Replace this use of System.out by a logger.(‚ñàè8À¹‚ç1
+X	java:S125G"<This block of commented-out lines of code should be removed.( ´ÀÍ8°œ€ç1

@@ -1,5 +1,7 @@
 package org.example;
 
+import com.github.javafaker.Faker;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -8,9 +10,64 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args)
     {
-        List<Person> random_persons = new ArrayList<>();
-        Random random = new Random();
+        Faker nameFaker = new Faker();
 
+
+        List<Person> persons = new ArrayList<>();
+        List<Destination> destinationList = new ArrayList<>();
+        Map<Destination, List<Person>> destinationReq = new HashMap<>();
+
+
+        destinationList.add(new Destination(nameFaker.company().name()));
+        destinationList.add(new Destination(nameFaker.company().name()));
+
+
+        Driver person1 = new Driver(nameFaker.name().lastName(), 50);
+        Driver person2 = new Driver(nameFaker.name().lastName(), 41);
+        Driver person3 = new Driver(nameFaker.name().lastName(), 41);
+        Passenger person4 = new Passenger(nameFaker.name().lastName(), 22);
+        Passenger person5 = new Passenger(nameFaker.name().lastName(), 15);
+        Passenger person6 = new Passenger(nameFaker.name().lastName(), 17);
+
+        persons.addAll(Arrays.asList(person1, person2, person3, person4, person5));
+
+
+        //persons who want to go to first destination
+        List<Person> destinationOneList = new ArrayList<>(Arrays.asList(person1, person3, person4));
+        List<Person> destinationTwoList = new ArrayList<>(Arrays.asList(person2, person5, person6));
+
+        destinationReq.put(destinationList.get(0), destinationOneList);
+        destinationReq.put(destinationList.get(1), destinationTwoList);
+
+        for(var destionationPersonsPair : destinationReq.entrySet())
+        {
+            var destination = destionationPersonsPair.getKey();
+            var personList = destionationPersonsPair.getValue();
+
+            //find the drivers
+            var drivers = personList.stream().filter(x -> x instanceof Driver).map(x -> (Driver)x).collect(Collectors.toList());
+            //find the passengers
+            var untakenPassengers = personList.stream().filter(x -> x instanceof Passenger).map(x -> (Passenger)x).collect(Collectors.toList());
+            for(var driver : drivers)
+            {
+                if(!untakenPassengers.isEmpty())
+                {
+                    System.out.println("Driver " + driver.name + " takes passenger " + untakenPassengers.get(0).name + " and goes to: " + destination.getDestination() + ".");
+                    untakenPassengers.remove(0);
+                }
+                else
+                {
+                    System.out.println("Driver " + driver.name + " goes alone to: " + destination.getDestination() + ".");
+                }
+            }
+
+            for(var x : untakenPassengers)
+            {
+                System.out.println("Passenger " + x.name + " hadn't a driver to go with!");
+            }
+        }
+
+        /* Compulsory
         for(int i = 1; i <= 10; i++)
         {
             int isDriver = random.nextInt(2);
@@ -23,6 +80,7 @@ public class Main {
                 random_persons.add(new Passenger("Passenger" + (50-i), 6*i));
             }
         }
+
 
         List<Driver> drivers = random_persons.stream().filter(x -> x instanceof Driver).map(x -> (Driver)x).collect(Collectors.toList());
         Collections.sort(drivers, ((u, v) -> ((Integer)u.age).compareTo((Integer)v.age)));
@@ -39,7 +97,7 @@ public class Main {
             System.out.println(passenger);
         }
 
-
+        */
 
     }
 }
