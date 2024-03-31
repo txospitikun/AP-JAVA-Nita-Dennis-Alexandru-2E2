@@ -1,6 +1,14 @@
 package org.example;
 
 import com.github.javafaker.Faker;
+import org.jgrapht.Graph;
+import org.jgrapht.alg.flow.EdmondsKarpMFImpl;
+import org.jgrapht.alg.matching.DenseEdmondsMaximumCardinalityMatching;
+import org.jgrapht.alg.matching.GreedyMaximumCardinalityMatching;
+import org.jgrapht.alg.matching.HopcroftKarpMaximumCardinalityBipartiteMatching;
+import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.DefaultUndirectedGraph;
+import org.jgrapht.alg.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -11,6 +19,7 @@ public class Main {
     public static void main(String[] args)
     {
         Faker nameFaker = new Faker();
+        Random random = new Random();
 
 
         List<Person> persons = new ArrayList<>();
@@ -66,6 +75,43 @@ public class Main {
                 System.out.println("Passenger " + x.name + " hadn't a driver to go with!");
             }
         }
+
+        Graph<Person, DefaultEdge> undirectedGraph = new DefaultUndirectedGraph<Person, DefaultEdge>(DefaultEdge.class);
+
+
+
+        ArrayList<Driver> randomDrivers = new ArrayList<>();
+        ArrayList<Passenger> randomPassengers = new ArrayList<>();
+
+        for(int i = 0; i < 5000; i++)
+        {
+            randomPassengers.add(new Passenger(nameFaker.name().lastName(), 0));
+        }
+
+        for(int i = 0; i < 5000; i++)
+        {
+            randomDrivers.add(new Driver(nameFaker.name().lastName(), 0));
+        }
+
+        for(var driver : randomDrivers)
+        {
+            undirectedGraph.addVertex(driver);
+            for(var passenger : randomPassengers)
+            {
+                undirectedGraph.addVertex(passenger);
+                if(random.nextInt(10) == 0)
+                {
+                    undirectedGraph.addEdge(driver, passenger);
+                }
+            }
+        }
+        DenseEdmondsMaximumCardinalityMatching graph = new DenseEdmondsMaximumCardinalityMatching(undirectedGraph);
+        var matching = graph.getMatching();
+        System.out.println(matching.getEdges());
+
+
+
+
 
         /* Compulsory
         for(int i = 1; i <= 10; i++)

@@ -1,11 +1,28 @@
 
+Q
+java:S3740l"/Provide the parametrized type for this generic.(”‰ğ†üÿÿÿÿ8ÒÑ„¯é1
+Q
+java:S3740l"/Provide the parametrized type for this generic.(”‰ğ†üÿÿÿÿ8ÒÑ„¯é1
+{
+java:S2293O"YReplace the type specification in this constructor call with the diamond operator ("<>").(¹ñ‘ïúÿÿÿÿ8ÓÑ„¯é1
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÛÛ¯ø8½Ó„¯é1
 t
-java:S62040"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¢Õ÷§ıÿÿÿÿ8­œ€ç1
+java:S62049"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¢Õ÷§ıÿÿÿÿ8ÍÓ„¯é1
 g
-java:S16120"EReplace this lambda with method reference 'Driver.class::isInstance'.(¢Õ÷§ıÿÿÿÿ8®œ€ç1
+java:S16129"EReplace this lambda with method reference 'Driver.class::isInstance'.(¢Õ÷§ıÿÿÿÿ8ÎÓ„¯é1
 j
-java:S16122"HReplace this lambda with method reference 'Passenger.class::isInstance'.(³Ñã“şÿÿÿÿ8®œ€ç1
-G	java:S1067"+Replace this use of System.out by a logger.(ˆ¯À”8¯œ€ç1
-L	java:S106<"+Replace this use of System.out by a logger.(¾§çöşÿÿÿÿ8¯œ€ç1
-G	java:S106B"+Replace this use of System.out by a logger.(‚ñàè8À¹‚ç1
-X	java:S125G"<This block of commented-out lines of code should be removed.( ´ÀÍ8°œ€ç1
+java:S1612;"HReplace this lambda with method reference 'Passenger.class::isInstance'.(³Ñã“şÿÿÿÿ8ÏÓ„¯é1
+G	java:S106@"+Replace this use of System.out by a logger.(ˆ¯À”8ÏÓ„¯é1
+L	java:S106E"+Replace this use of System.out by a logger.(¾§çöşÿÿÿÿ8ĞÓ„¯é1
+G	java:S106K"+Replace this use of System.out by a logger.(‚ñàè8ĞÓ„¯é1
+L	java:S106n"+Replace this use of System.out by a logger.(¾ïáîşÿÿÿÿ8ÔÓ„¯é1
+X	java:S125u"<This block of commented-out lines of code should be removed.( ´ÀÍ8ÕÓ„¯é1
+`
+java:S1128"CRemove this unused import 'org.jgrapht.alg.flow.EdmondsKarpMFImpl'.(‘ ¹’8˜‘ˆ¯é1
+x
+java:S1128"VRemove this unused import 'org.jgrapht.alg.matching.GreedyMaximumCardinalityMatching'.(ÍŸîıÿÿÿÿ8˜‘ˆ¯é1
+‡
+java:S1128"eRemove this unused import 'org.jgrapht.alg.matching.HopcroftKarpMaximumCardinalityBipartiteMatching'.(¼ªĞïıÿÿÿÿ8˜‘ˆ¯é1
+I
+java:S1128",Remove this unused import 'org.jgrapht.alg'.(şÓˆÉ8˜‘ˆ¯é1

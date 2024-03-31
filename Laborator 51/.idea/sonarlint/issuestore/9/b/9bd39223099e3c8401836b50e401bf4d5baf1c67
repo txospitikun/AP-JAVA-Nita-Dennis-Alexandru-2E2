@@ -1,0 +1,7 @@
+
+A
+java:S1168 "+Return an empty collection instead of null.(¥¹ï
+h
+java:S6204$"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(õ¤¸Ú
+@	java:S106-"+Replace this use of System.out by a logger.(·ÔŠ¸
+E	java:S1060"+Replace this use of System.out by a logger.(ˆÕÓùÿÿÿÿ
