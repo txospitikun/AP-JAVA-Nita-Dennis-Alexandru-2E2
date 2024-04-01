@@ -1,0 +1,15 @@
+
+j
+java:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(üè•¥8¥‡Ëé1
+l
+java:S2095"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¿ûÃ³şÿÿÿÿ8¥‡Ëé1
+`
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(”ŸÚ¥ùÿÿÿÿ8ä­ŒËé1
+G	java:S1062"+Replace this use of System.out by a logger.(™ËŒæ8å­ŒËé1
+L	java:S1063"+Replace this use of System.out by a logger.(¥çÈ„ûÿÿÿÿ8¢Ëé1
+L	java:S1064"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8£Ëé1
+L	java:S1069"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8¤Ëé1
+J
+java:S1128"(Remove this unused import 'javax.swing'.(Ìí¿Üüÿÿÿÿ8Á‡Ëé1
+J
+java:S1128	"-Remove this unused import 'java.awt.Desktop'.(¶¼©ç8Â‡Ëé1

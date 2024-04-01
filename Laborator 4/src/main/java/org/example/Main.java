@@ -80,8 +80,9 @@ public class Main {
 
 
 
-        ArrayList<Driver> randomDrivers = new ArrayList<>();
-        ArrayList<Passenger> randomPassengers = new ArrayList<>();
+        Set<Person> randomDrivers = new HashSet<>() {
+        };
+        Set<Person> randomPassengers = new HashSet<>();
 
         for(int i = 0; i < 5000; i++)
         {
@@ -105,9 +106,8 @@ public class Main {
                 }
             }
         }
-        DenseEdmondsMaximumCardinalityMatching graph = new DenseEdmondsMaximumCardinalityMatching(undirectedGraph);
-        var matching = graph.getMatching();
-        System.out.println(matching.getEdges());
+        EdmondsKarpMFImpl<Person, DefaultEdge> edmondKarp = new EdmondsKarpMFImpl<>(undirectedGraph);
+        System.out.println(edmondKarp.calculateMaximumFlow(randomDrivers.iterator().next(), randomPassengers.iterator().next()));
 
 
 

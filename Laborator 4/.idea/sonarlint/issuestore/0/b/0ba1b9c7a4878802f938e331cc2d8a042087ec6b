@@ -1,28 +1,24 @@
 
-Q
-java:S3740l"/Provide the parametrized type for this generic.(”‰ð†üÿÿÿÿ8ÒÑ„¯é1
-Q
-java:S3740l"/Provide the parametrized type for this generic.(”‰ð†üÿÿÿÿ8ÒÑ„¯é1
 {
-java:S2293O"YReplace the type specification in this constructor call with the diamond operator ("<>").(¹ñ‘ïúÿÿÿÿ8ÓÑ„¯é1
+java:S2293O"YReplace the type specification in this constructor call with the diamond operator ("<>").(¹ñ‘ïúÿÿÿÿ8ÿ•òËé1
 o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÛÛ¯ø8½Ó„¯é1
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÛÛ¯ø8†–òËé1
 t
-java:S62049"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¢Õ÷§ýÿÿÿÿ8ÍÓ„¯é1
+java:S62049"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¢Õ÷§ýÿÿÿÿ8˜–òËé1
 g
-java:S16129"EReplace this lambda with method reference 'Driver.class::isInstance'.(¢Õ÷§ýÿÿÿÿ8ÎÓ„¯é1
+java:S16129"EReplace this lambda with method reference 'Driver.class::isInstance'.(¢Õ÷§ýÿÿÿÿ8™–òËé1
 j
-java:S1612;"HReplace this lambda with method reference 'Passenger.class::isInstance'.(³Ñã“þÿÿÿÿ8ÏÓ„¯é1
-G	java:S106@"+Replace this use of System.out by a logger.(ˆ¯À”8ÏÓ„¯é1
-L	java:S106E"+Replace this use of System.out by a logger.(¾§çöþÿÿÿÿ8ÐÓ„¯é1
-G	java:S106K"+Replace this use of System.out by a logger.(‚ñàè8ÐÓ„¯é1
-L	java:S106n"+Replace this use of System.out by a logger.(¾ïáîþÿÿÿÿ8ÔÓ„¯é1
-X	java:S125u"<This block of commented-out lines of code should be removed.( ´ÀÍ8ÕÓ„¯é1
-`
-java:S1128"CRemove this unused import 'org.jgrapht.alg.flow.EdmondsKarpMFImpl'.(‘ ¹’8˜‘ˆ¯é1
+java:S1612;"HReplace this lambda with method reference 'Passenger.class::isInstance'.(³Ñã“þÿÿÿÿ8š–òËé1
+G	java:S106@"+Replace this use of System.out by a logger.(ˆ¯À”8›–òËé1
+L	java:S106E"+Replace this use of System.out by a logger.(¾§çöþÿÿÿÿ8œ–òËé1
+G	java:S106K"+Replace this use of System.out by a logger.(‚ñàè8–òËé1
+L	java:S106n"+Replace this use of System.out by a logger.(ÂÇÕçýÿÿÿÿ8¦–òËé1
+X	java:S125u"<This block of commented-out lines of code should be removed.( ´ÀÍ8§–òËé1
+y
+java:S1128"\Remove this unused import 'org.jgrapht.alg.matching.DenseEdmondsMaximumCardinalityMatching'.(ò¡Î§8ÞñßÍé1
 x
-java:S1128"VRemove this unused import 'org.jgrapht.alg.matching.GreedyMaximumCardinalityMatching'.(ÍŸîýÿÿÿÿ8˜‘ˆ¯é1
+java:S1128"VRemove this unused import 'org.jgrapht.alg.matching.GreedyMaximumCardinalityMatching'.(ÍŸîýÿÿÿÿ8û¸øËé1
 ‡
-java:S1128"eRemove this unused import 'org.jgrapht.alg.matching.HopcroftKarpMaximumCardinalityBipartiteMatching'.(¼ªÐïýÿÿÿÿ8˜‘ˆ¯é1
+java:S1128"eRemove this unused import 'org.jgrapht.alg.matching.HopcroftKarpMaximumCardinalityBipartiteMatching'.(¼ªÐïýÿÿÿÿ8û¸øËé1
 I
-java:S1128",Remove this unused import 'org.jgrapht.alg'.(þÓˆÉ8˜‘ˆ¯é1
+java:S1128",Remove this unused import 'org.jgrapht.alg'.(þÓˆÉ8û¸øËé1

@@ -1,7 +1,0 @@
-
-†
-java:S1319"dThe type of "args" should be an interface such as "List" rather than the implementation "ArrayList".(έςΥϊÿÿÿÿ8Γ—Ψ°ι1
-s	java:S116"WRename this field "command_text" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(πµΡ8Δ—Ψ°ι1
-[
-java:S5993	"9Change the visibility of this constructor to "protected".(ªΰύÿÿÿÿ8Ε—Ψ°ι1
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(έςΥϊÿÿÿÿ8Ζ—Ψ°ι1

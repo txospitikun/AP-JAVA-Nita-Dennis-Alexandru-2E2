@@ -1,0 +1,11 @@
+
+H
+java:S11680"+Return an empty collection instead of null.(¥Ήο8πτΔι1
+o
+java:S62044"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(υ¤ΈΪ8ρτΔι1
+G	java:S106="+Replace this use of System.out by a logger.(·ΤΈ8στΔι1
+L	java:S106@"+Replace this use of System.out by a logger.(ΥΣωÿÿÿÿ8ττΔι1
+O
+java:S1128"2Remove this unused import 'java.security.KeyPair'.(όϊμ›8Ν¦‘Δι1
+M
+java:S1128	"0Remove this unused import 'java.util.ArrayList'.(χ‰ξƒ8Ν¦‘Δι1

@@ -1,0 +1,14 @@
+
+Q
+java:S3740>"/Provide the parametrized type for this generic.(Õˆ±±øÿÿÿÿ8¶Ó¤Ëé1
+^
+java:S4973E"<Strings and Boxed types should be compared using "equals()".(ß§ ’úÿÿÿÿ8¸Ó¤Ëé1
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(œû¿Ø8¼Õ¤Ëé1
+L	java:S1068"+Replace this use of System.out by a logger.(›Äæ÷üÿÿÿÿ8ÇÕ¤Ëé1
+L	java:S106F"+Replace this use of System.out by a logger.(¸šñÙüÿÿÿÿ8ÊÕ¤Ëé1
+G	java:S106T"+Replace this use of System.out by a logger.(‡É»á8ËÕ¤Ëé1
+`
+java:S1128">Remove this unused import 'freemarker.template.Configuration'.(ğô£Æùÿÿÿÿ8ËÕ¤Ëé1
+k
+java:S1128"IRemove this unused import 'freemarker.template.TemplateExceptionHandler'.(Àî÷¦úÿÿÿÿ8ËÕ¤Ëé1

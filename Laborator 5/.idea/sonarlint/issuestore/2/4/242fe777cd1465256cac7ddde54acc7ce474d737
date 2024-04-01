@@ -1,0 +1,14 @@
+
+c
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(ÅâÎæıÿÿÿÿ8³Â–Äé1
+[
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(ªæøâ8·Â–Äé1
+a
+java:S2147@"DCombine this catch with the one at line 62, which has the same body.(¶Ò×8¸Â–Äé1
+L	java:S1066"+Replace this use of System.out by a logger.(åôÂëûÿÿÿÿ8ÁÂ–Äé1
+c
+java:S1075:"ARefactor your code to get this URI from a customizable parameter.(Üôü§şÿÿÿÿ8ÃÂ–Äé1
+J
+java:S1128"(Remove this unused import 'javax.swing'.(Ìí¿Üüÿÿÿÿ8Ì­¡Äé1
+J
+java:S1128	"-Remove this unused import 'java.awt.Desktop'.(¶¼©ç8Ì­¡Äé1

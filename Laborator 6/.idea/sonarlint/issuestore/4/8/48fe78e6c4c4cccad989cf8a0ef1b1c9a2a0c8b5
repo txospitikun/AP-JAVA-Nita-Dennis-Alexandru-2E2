@@ -1,0 +1,17 @@
+
+D
+java:S1659	""Declare "cols" on a separate line.(é½ËÍûÿÿÿÿ8…Ú¨Æé1
+G
+java:S1659
+"*Declare "canvasHeight" on a separate line.(»ÿ‘±8†Ú¨Æé1
+F
+java:S1659")Declare "boardHeight" on a separate line.(“şÀÇ8‡Ú¨Æé1
+E
+java:S1659"(Declare "cellHeight" on a separate line.(ñ¼‰ç8‡Ú¨Æé1
+D
+java:S1659""Declare "padY" on a separate line.(¢âÓƒÿÿÿÿÿ8‡Ú¨Æé1
+]	java:S125$"<This block of commented-out lines of code should be removed.(­“ß—ÿÿÿÿÿ8Ú¨Æé1
+[
+java:S1128"9Remove this unused import 'java.awt.image.BufferedImage'.(×íĞ‡şÿÿÿÿ8Şº§Éé1
+K
+java:S1068")Remove this unused "frame" private field.(ÃÁ¦‡ÿÿÿÿÿ8¡Ú¨Æé1
