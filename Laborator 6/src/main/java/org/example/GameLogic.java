@@ -16,7 +16,6 @@ public class GameLogic
 
     Graph<String, DefaultEdge> gameGraph = new DefaultUndirectedGraph<>(DefaultEdge.class);
     Set<String> vertices = gameGraph.vertexSet();
-
     Set<String> playerOneVertices = new HashSet<>();
     Set<String> playerOneNodes = new HashSet<>();
     Set<String> playerTwoVertices = new HashSet<>();
@@ -52,40 +51,56 @@ public class GameLogic
 
             System.out.println(gameGraph.edgeSet());
 
-            if((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX - 1}-\{currentY}")
-                    || (gameGraph.containsEdge(STR."\{currentX - 1}-\{currentY}", STR."\{currentX}-\{currentY}"))))
-            {
-                System.out.println(currentX + " " + currentY + "->" + (currentX - 1) + " " + currentY);
-                hasEdge = true;
-            }
+            if(isFirstPlayer) {
+                if ((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX - 1}-\{currentY}")) && up1) {
+                    System.out.println(currentX + " " + currentY + "->" + (currentX - 1) + " " + currentY);
+                    hasEdge = true;
+                }
 
-            if((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX + 1}-\{currentY}")
-            || (gameGraph.containsEdge(STR."\{currentX + 1}-\{currentY}", STR."\{currentX}-\{currentY}"))))
-            {
-                System.out.println(currentX + " " + currentY + "->" + (currentX + 1) + " " + currentY);
-                hasEdge = true;
-            }
+                if ((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX + 1}-\{currentY}")) && down1) {
+                    System.out.println(currentX + " " + currentY + "->" + (currentX + 1) + " " + currentY);
+                    hasEdge = true;
+                }
 
-            if((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX}-\{currentY-1}")
-                    || (gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX}-\{currentY-1}"))))
-            {
-                System.out.println(currentX + " " + currentY + "->" + (currentX) + " " + (currentY-1));
-                hasEdge = true;
-            }
+                if ((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX}-\{currentY - 1}")) && left1) {
+                    System.out.println(currentX + " " + currentY + "->" + (currentX) + " " + (currentY - 1));
+                    hasEdge = true;
+                }
 
-            if((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX}-\{currentY+1}")
-                    || (gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX}-\{currentY+1}"))))
+                if ((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX}-\{currentY + 1}")) && right1) {
+                    System.out.println(currentX + " " + currentY + "->" + (currentX) + " " + (currentY + 1));
+                    hasEdge = true;
+                }
+            }
+            else
             {
-                System.out.println(currentX + " " + currentY + "->" + (currentX) + " " + (currentY+1));
-                hasEdge = true;
+                if ((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX - 1}-\{currentY}")) && up2) {
+                    System.out.println(currentX + " " + currentY + "->" + (currentX - 1) + " " + currentY);
+                    hasEdge = true;
+                }
+
+                if ((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX + 1}-\{currentY}")) && down2) {
+                    System.out.println(currentX + " " + currentY + "->" + (currentX + 1) + " " + currentY);
+                    hasEdge = true;
+                }
+
+                if ((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX}-\{currentY - 1}")) && left2) {
+                    System.out.println(currentX + " " + currentY + "->" + (currentX) + " " + (currentY - 1));
+                    hasEdge = true;
+                }
+
+                if ((gameGraph.containsEdge(STR."\{currentX}-\{currentY}", STR."\{currentX}-\{currentY + 1}")) && right2) {
+                    System.out.println(currentX + " " + currentY + "->" + (currentX) + " " + (currentY + 1));
+                    hasEdge = true;
+                }
             }
 
 
             if (isFirstPlayer) {
-                if (!(up1 || down1 || left1 || right1) && hasEdge)
+                if (!(up1 || down1 || left1 || right1) || !hasEdge)
                     return false;
             }
-            else if(!(up2 || down2 || left2 || right2) && hasEdge)
+            else if(!(up2 || down2 || left2 || right2) || !hasEdge)
                 return false;
 
         }
@@ -154,6 +169,17 @@ public class GameLogic
         {
             instance = new GameLogic();
         }
+        return instance;
+    }
+
+    public static synchronized GameLogic restartInstance()
+    {
+        if(instance != null)
+        {
+            instance = null;
+        }
+        instance = new GameLogic();
+
         return instance;
     }
 

@@ -2,6 +2,8 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ConfigPanel extends JPanel
 {
@@ -31,8 +33,12 @@ public class ConfigPanel extends JPanel
         add(spinner);
         add(spinner2);
         add(newGameBtn);
+        newGameBtn.addActionListener(this::newGame);
     }
 
+    public void newGame(ActionEvent e)
+    {
+    }
     public int getRows()
     {
         return this.rows;

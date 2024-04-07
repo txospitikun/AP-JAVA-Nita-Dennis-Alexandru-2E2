@@ -43,6 +43,7 @@ public class DrawingPanel extends JPanel {
             public void mousePressed(MouseEvent e) {
                 float A = (float) ((e.getX()-padX)*1.0/cellWidth);
                 float B = (float) ((e.getY()-padY)*1.0/cellHeight);
+
                 float distance = (float) Math.sqrt((A-Math.round(A))*(A-Math.round(A)) + (B-Math.round(B))*(B-Math.round(B)));
                 if(distance*100 < stoneSize) {
                     if(gameLogic.validateMove((int) ((padX + Math.round(A) * cellHeight) - stoneSize / 2), (int)((padY + Math.round(B) * cellWidth) - stoneSize / 2), A, B, isFirstPlayer))
