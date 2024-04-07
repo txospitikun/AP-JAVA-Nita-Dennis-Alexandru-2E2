@@ -1,17 +1,28 @@
 
+Q
+java:S10660"/Merge this if statement with the enclosing one.(€ëé±øÿÿÿÿ8öÓÏë1
+m	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸–«Ì8öÓÏë1
+r	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷’˜£ıÿÿÿÿ8öÓÏë1
 D
-java:S1659	""Declare "cols" on a separate line.(é½ËÍûÿÿÿÿ8…Ú¨Æé1
+java:S1659""Declare "cols" on a separate line.(é½ËÍûÿÿÿÿ8ºöÓÏë1
 G
-java:S1659
-"*Declare "canvasHeight" on a separate line.(»ÿ‘±8†Ú¨Æé1
+java:S1659"*Declare "canvasHeight" on a separate line.(»ÿ‘±8ºöÓÏë1
 F
-java:S1659")Declare "boardHeight" on a separate line.(“şÀÇ8‡Ú¨Æé1
+java:S1659")Declare "boardHeight" on a separate line.(“şÀÇ8ºöÓÏë1
 E
-java:S1659"(Declare "cellHeight" on a separate line.(ñ¼‰ç8‡Ú¨Æé1
+java:S1659"(Declare "cellHeight" on a separate line.(ñ¼‰ç8ºöÓÏë1
 D
-java:S1659""Declare "padY" on a separate line.(¢âÓƒÿÿÿÿÿ8‡Ú¨Æé1
-]	java:S125$"<This block of commented-out lines of code should be removed.(­“ß—ÿÿÿÿÿ8Ú¨Æé1
-[
-java:S1128"9Remove this unused import 'java.awt.image.BufferedImage'.(×íĞ‡şÿÿÿÿ8Şº§Éé1
+java:S1659""Declare "padY" on a separate line.(¢âÓƒÿÿÿÿÿ8ºöÓÏë1
+H
+java:S1948"+Make "gameLogic" transient or serializable.(›¯÷à8ºöÓÏë1
+H
+java:S19050"&Remove this unnecessary cast to "int".(€ëé±øÿÿÿÿ8½öÓÏë1
+H
+java:S19050"&Remove this unnecessary cast to "int".(€ëé±øÿÿÿÿ8½öÓÏë1
+a
+java:S1659^"?Declare "x2" and all following declarations on a separate line.(ıÔ¨Åúÿÿÿÿ8¿öÓÏë1
+]	java:S125l"<This block of commented-out lines of code should be removed.(ù¥ Öúÿÿÿÿ8ÀöÓÏë1
+B
+java:S1659v" Declare "y1" on a separate line.(ö±ÀÙıÿÿÿÿ8ÁöÓÏë1
 K
-java:S1068")Remove this unused "frame" private field.(ÃÁ¦‡ÿÿÿÿÿ8¡Ú¨Æé1
+java:S1068")Remove this unused "frame" private field.(ÃÁ¦‡ÿÿÿÿÿ8ÂöÓÏë1

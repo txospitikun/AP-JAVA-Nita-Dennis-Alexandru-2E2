@@ -8,7 +8,6 @@ public class ConfigPanel extends JPanel
     int rows, cols;
     final MainFrame frame;
     JLabel label;
-
     JSpinner spinner;
     JSpinner spinner2;
 
@@ -27,7 +26,7 @@ public class ConfigPanel extends JPanel
         setLayout(new GridLayout(1, 2));
         label = new JLabel("Grid size:");
         spinner = new JSpinner(new SpinnerNumberModel(10, 2, 100, 1));
-        spinner2= new JSpinner(new SpinnerNumberModel(10, 2, 100, 1));
+        spinner2 = new JSpinner(new SpinnerNumberModel(10, 2, 100, 1));
         add(label);
         add(spinner);
         add(spinner2);

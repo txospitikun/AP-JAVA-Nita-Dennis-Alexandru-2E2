@@ -11,3 +11,7 @@ Z
 +src/main/java/org/example/ControlPanel.java,7\6\76bc0f4d32889a0b6d77a2d0a8fc3be0a5d848c6
 [
 +src/main/java/org/example/DrawingPanel.java,4\8\48fe78e6c4c4cccad989cf8a0ef1b1c9a2a0c8b5
+X
+(src/main/java/org/example/GameLogic.java,a\3\a35b5d63c1abb0791af74b63dd37493125f8e28d
+S
+#src/main/java/org/example/Pair.java,5\e\5e16ef023846d64edff65ea07f9e6128d2587a03
