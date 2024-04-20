@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.io.*;
 
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
@@ -13,8 +13,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Set;
 
 public class ControlPanel extends JPanel {
@@ -46,11 +44,41 @@ public class ControlPanel extends JPanel {
     }
 
     private void loadGame(ActionEvent e) {
-        // Implement load game functionality
+        try
+        {
+            FileInputStream fileInputStream = new FileInputStream("gamelogic_serialized.txt");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            var x = (GameLogic)objectInputStream.readObject();
+            GameLogic.setInstance(x);
+//            System.out.println("after: playerOneVertices: " + GameLogic.getInstance().playerOneVertices);
+//            System.out.println("after: playerTwoVertices: " + GameLogic.getInstance().playerTwoVertices);
+//            System.out.println("after: playerOneNodes: " + GameLogic.getInstance().playerOneNodes);
+//            System.out.println("after: playerTwoNodes: " + GameLogic.getInstance().playerTwoNodes);
+            objectInputStream.close();
+            frame.canvas.init(frame.configPanel.rows, frame.configPanel.cols);
+        } catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
-    private void saveGame(ActionEvent e) {
-        var gameLogicInstance = GameLogic.getInstance();
+    private void saveGame(ActionEvent e)
+    {
+        try {
+            FileOutputStream fileOutput = new FileOutputStream("gamelogic_serialized.txt");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutput);
+            objectOutputStream.writeObject(GameLogic.getInstance());
+//            System.out.println("before: playerOneVertices: " + GameLogic.getInstance().playerOneVertices);
+//            System.out.println("before: playerTwoVertices: " + GameLogic.getInstance().playerTwoVertices);
+//            System.out.println("before: playerOneNodes: " + GameLogic.getInstance().playerOneNodes);
+//            System.out.println("before: playerTwoNodes: " + GameLogic.getInstance().playerTwoNodes);
+            objectOutputStream.flush();
+            objectOutputStream.close();
+        } catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
     }
     private void savePhoto(ActionEvent e) {
 
@@ -63,7 +91,7 @@ public class ControlPanel extends JPanel {
         Graphics2D graphics2D = imagebuf.createGraphics();
         frame.paint(graphics2D);
         try {
-            ImageIO.write(imagebuf,"jpeg", new File("save1.jpeg"));
+            ImageIO.write(imagebuf,"png", new File("save1.png"));
         } catch (Exception ex) {
             System.out.println("error");
         }

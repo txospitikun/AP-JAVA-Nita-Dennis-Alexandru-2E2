@@ -8,9 +8,9 @@ import static javax.swing.SwingConstants.*;
 
 public class MainFrame extends JFrame
 {
-    ConfigPanel configPanel;
-    ControlPanel controlPanel;
-    DrawingPanel canvas;
+    public ConfigPanel configPanel;
+    public ControlPanel controlPanel;
+    public DrawingPanel canvas;
 
     public MainFrame(int rows, int cols)
     {

@@ -15,5 +15,5 @@ X
 (src/main/java/org/example/GameLogic.java,a\3\a35b5d63c1abb0791af74b63dd37493125f8e28d
 S
 #src/main/java/org/example/Pair.java,5\e\5e16ef023846d64edff65ea07f9e6128d2587a03
-W
-'src/main/java/org/example/LoadJSON.java,5\8\584e5651924283b5aa5726ca574185a113af7943
+\
+,src/main/java/org/example/BooleanObject.java,d\3\d3a280c91b159cd55c7ffbaf5a29239843ed623d

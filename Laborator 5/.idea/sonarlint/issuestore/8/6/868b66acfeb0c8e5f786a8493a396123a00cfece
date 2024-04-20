@@ -1,8 +1,8 @@
 
-j
-java:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(üè•¥8¥‡Ëé1
 l
 java:S2095"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¿ûÃ³þÿÿÿÿ8¥‡Ëé1
+j
+java:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(üè•¥8¥‡Ëé1
 `
 java:S1155">Use isEmpty() to check whether the collection is empty or not.(”ŸÚ¥ùÿÿÿÿ8ä­ŒËé1
 G	java:S1062"+Replace this use of System.out by a logger.(™ËŒæ8å­ŒËé1

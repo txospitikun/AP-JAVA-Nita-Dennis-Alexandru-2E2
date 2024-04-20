@@ -8,21 +8,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static java.lang.Math.sqrt;
-
-
-
-
 public class DrawingPanel extends JPanel {
     private final MainFrame frame;
     int rows, cols;
-    int canvasWidth = 400, canvasHeight = 400;
+    int canvasWidth = 600, canvasHeight = 600;
     int boardWidth, boardHeight;
     int cellWidth, cellHeight;
     int padX, padY;
     int stoneSize = 20;
+    boolean someoneWon = false;
 
-    boolean isFirstPlayer = true;
-    GameLogic gameLogic = GameLogic.getInstance();
+    boolean firstInit = true;
     public DrawingPanel(MainFrame frame) {
         this.frame = frame;
         init(frame.configPanel.getRows(), frame.configPanel.getCols());
@@ -38,23 +34,52 @@ public class DrawingPanel extends JPanel {
         this.boardHeight = (rows - 1) * cellHeight;
         setPreferredSize(new Dimension(canvasWidth, canvasHeight));
 
+        BooleanObject isFirstPlayer = new BooleanObject();
+
+        isFirstPlayer.value = false;
+
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
+                if(someoneWon)
+                {
+                    return;
+                }
                 float A = (float) ((e.getX()-padX)*1.0/cellWidth);
                 float B = (float) ((e.getY()-padY)*1.0/cellHeight);
 
                 float distance = (float) Math.sqrt((A-Math.round(A))*(A-Math.round(A)) + (B-Math.round(B))*(B-Math.round(B)));
                 if(distance*100 < stoneSize) {
-                    if(gameLogic.validateMove((int) ((padX + Math.round(A) * cellHeight) - stoneSize / 2), (int)((padY + Math.round(B) * cellWidth) - stoneSize / 2), A, B, isFirstPlayer))
-                        isFirstPlayer = !isFirstPlayer;
+                    GameLogic.getInstance().validateMove((int) ((padX + Math.round(A) * cellHeight) - stoneSize / 2), (int)((padY + Math.round(B) * cellWidth) - stoneSize / 2), A, B, false, isFirstPlayer);
+                }
+                boolean canPlace = false;
+                for(int i = 0; i < frame.configPanel.rows; i++)
+                {
+                    for(int j = 0; j < frame.configPanel.cols; j++)
+                    {
+                        if(GameLogic.getInstance().validateMove((int) ((padX + Math.round(i) * cellHeight) - stoneSize / 2), (int)((padY + Math.round(j) * cellWidth) - stoneSize / 2), i, j, true, isFirstPlayer))
+                        {
+                            canPlace = true;
+                            break;
+                        }
+                    }
+                }
+                if(!canPlace)
+                {
+                    JOptionPane.showMessageDialog(null, STR."\{isFirstPlayer.value ? "Blue" : "Red"} player wins!");
+                    someoneWon = true;
                 }
                 repaint();
             }
         });
 
-        gameLogic.generateLogicGraph(rows, cols);
-        gameLogic.generateSticks(rows, cols);
+        if(firstInit) {
+            GameLogic.getInstance().generateLogicGraph(rows, cols);
+            GameLogic.getInstance().generateSticks(rows, cols);
+            firstInit = false;
+        }
+
+        repaint();
     }
     @Override
     protected void paintComponent(Graphics graphics) {
@@ -118,7 +143,7 @@ public class DrawingPanel extends JPanel {
     {
         float x1 = 0, y1 = 0;
         Pattern pattern = Pattern.compile("(-?\\d*\\.?\\d+)\\s*-\\s*(-?\\d*\\.?\\d+)");
-        for(var player : gameLogic.playerOneVertices)
+        for(var player : GameLogic.getInstance().playerOneVertices)
         {
             Matcher matcher = pattern.matcher(player);
             if (matcher.matches()) {
@@ -130,7 +155,7 @@ public class DrawingPanel extends JPanel {
             }
         }
 
-        for(var player : gameLogic.playerTwoVertices)
+        for(var player : GameLogic.getInstance().playerTwoVertices)
         {
             Matcher matcher = pattern.matcher(player);
             if (matcher.matches()) {
@@ -143,4 +168,3 @@ public class DrawingPanel extends JPanel {
         }
     }
 }
-

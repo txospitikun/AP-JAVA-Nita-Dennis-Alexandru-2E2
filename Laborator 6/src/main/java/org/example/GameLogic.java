@@ -1,5 +1,7 @@
 package org.example;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -10,21 +12,20 @@ import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.DefaultUndirectedGraph;
 import org.jgrapht.alg.*;
 
-public class GameLogic
+public class GameLogic implements Serializable
 {
+    @Serial
+    private static final long serialVersionUID = -1273203341611544224L;
     private static GameLogic instance = null;
-
-    Graph<String, DefaultEdge> gameGraph = new DefaultUndirectedGraph<>(DefaultEdge.class);
-    Set<String> vertices = gameGraph.vertexSet();
-    Set<String> playerOneVertices = new HashSet<>();
-    Set<String> playerOneNodes = new HashSet<>();
-    Set<String> playerTwoVertices = new HashSet<>();
-    Set<String> playerTwoNodes = new HashSet<>();
-    private final Random rand = new Random();
-
+    public Graph<String, DefaultEdge> gameGraph = new DefaultUndirectedGraph<>(DefaultEdge.class);
+    public Set<String> playerOneVertices = new HashSet<>();
+    public Set<String> playerOneNodes = new HashSet<>();
+    public Set<String> playerTwoVertices = new HashSet<>();
+    public Set<String> playerTwoNodes = new HashSet<>();
+    boolean isFirstPlayer = true;
     int moveCounter = 0;
 
-    public boolean validateMove(float mouseX, float mouseY, float A, float B, boolean isFirstPlayer)
+    public boolean validateMove(float mouseX, float mouseY, float A, float B, boolean justValidation, BooleanObject isFirstPlayerClone)
     {
 
         int currentX = Math.round(A);
@@ -105,15 +106,19 @@ public class GameLogic
 
         }
 
-        if(isFirstPlayer) {
-            playerOneVertices.add(STR."\{mouseX}-\{mouseY}");
-            playerOneNodes.add(STR."\{currentX}-\{currentY}");
+        if(!justValidation) {
+            if (isFirstPlayer) {
+                playerOneVertices.add(STR."\{mouseX}-\{mouseY}");
+                playerOneNodes.add(STR."\{currentX}-\{currentY}");
+            } else {
+                playerTwoVertices.add(STR."\{mouseX}-\{mouseY}");
+                playerTwoNodes.add(STR."\{currentX}-\{currentY}");
+            }
+            moveCounter += 1;
+            isFirstPlayer = !isFirstPlayer;
         }
-        else {
-            playerTwoVertices.add(STR."\{mouseX}-\{mouseY}");
-            playerTwoNodes.add(STR."\{currentX}-\{currentY}");
-        }
-        moveCounter += 1;
+        isFirstPlayerClone.value = isFirstPlayer;
+
         return true;
     }
 
@@ -130,6 +135,7 @@ public class GameLogic
 
     public void generateSticks(int rows, int columns)
     {
+        Random rand = new Random();
         var allVertices = gameGraph.vertexSet();
         for(int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
@@ -180,6 +186,13 @@ public class GameLogic
         }
         instance = new GameLogic();
 
+        return instance;
+    }
+
+    public static synchronized GameLogic setInstance(GameLogic givenInstance)
+    {
+        instance = null;
+        instance = givenInstance;
         return instance;
     }
 
