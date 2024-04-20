@@ -6,6 +6,8 @@ public class Main {
         GameLogic logic = new GameLogic();
         logic.generateTokens(100);
 
+        Timekeeper timeKeeper = new Timekeeper(5);
+        timeKeeper.start();
         Player player1 = new Player("Dennis", 0);
         Player player2 = new Player("Bombica", 1);
         Player player3 = new Player("Cazan", 2);
@@ -15,5 +17,6 @@ public class Main {
         logic.addPlayer(player3);
 
         logic.startThreads();
+
     }
 }
