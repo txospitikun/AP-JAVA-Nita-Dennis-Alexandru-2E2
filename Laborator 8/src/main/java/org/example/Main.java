@@ -1,31 +1,48 @@
 package org.example;
 
-import java.sql.SQLException;
+import java.io.IOException;
+import java.sql.*;
+import java.util.List;
 
-public class Main
-{
-    public static void main(String[] args) throws SQLException
-    {
-        try
-        {
-            var authors = new AuthorDAO();
-            authors.create("William Shakespeare");
+public class Main {
+    public static void main(String args[]) {
+        try {
+            Database.createAuthorsTable();
+            Database.createGenresTable();
+            Database.createBooksTable();
 
-            var genres = new GenreDAO();
-            genres.create("Tragedy");
-            Database.getConnection().commit();
+            AuthorDAO authorDAO = new AuthorDAO();
+            authorDAO.create("William Shakespeare");
+            authorDAO.create("J.K.Rowling");
 
-            var books = new BookDAO();
-            books.create(1597, "Romeo and Juliet", "William Shakespeare", "Tragedy");
-            books.create(1979, "The Hitchhiker's Guide to the Galaxy");
+            System.out.println(new AuthorDAO().findByName("William Shakespeare"));
+            System.out.println(new AuthorDAO().findAll());
 
-            Database.getConnection().commit();
+            GenreDAO genreDAO = new GenreDAO();
+            genreDAO.create("Thriller");
+            genreDAO.create("SF");
+            System.out.println(new GenreDAO().findAll());
 
 
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
+            Book romeoAndJuliet = new Book("Romeo and Juliet", "William Shakespeare", "Tragedy", "eng", "1597-07-01", 399);
+            Book hitchhikersGuide = new Book("A Swiftly Tilting Planet", "Madeleine L'Eclair", "Adventure, Comedy", "eng", "1978-05-13", 319);
+
+            BookDAO bookDAO = new BookDAO();
+            bookDAO.create(romeoAndJuliet);
+            bookDAO.create(hitchhikersGuide);
+
+            BookCSVReader.importBooksFromCSV();
+
+            List<Book> allBooks = bookDAO.getAllBooks();
+            for (Book book : allBooks) {
+                System.out.println(book);
+            }
+
+            Database.closeConnection();
+        } catch (SQLException e) {
+            System.err.println(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

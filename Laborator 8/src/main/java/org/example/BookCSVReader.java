@@ -9,18 +9,8 @@ import java.util.List;
 
 public class BookCSVReader {
     private static final String CSV_FILE_PATH = "books.csv";
-
-    public static void main(String[] args) {
-        try
-        {
-            importBooksFromCSV();
-        } catch (IOException | SQLException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public static void importBooksFromCSV() throws IOException, SQLException {
+    public static void importBooksFromCSV() throws IOException, SQLException
+    {
         try (BufferedReader br = new BufferedReader(new FileReader(CSV_FILE_PATH)))
         {
             br.readLine();
@@ -39,6 +29,8 @@ public class BookCSVReader {
                 book.setPublicationDate(data[10]);
                 books.add(book);
             }
+
+            System.out.println("Book added to the database.");
 
             BookDAO bookDAO = new BookDAO();
             bookDAO.createBatch(books);

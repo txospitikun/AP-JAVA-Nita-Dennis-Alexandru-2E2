@@ -5,3 +5,7 @@ m	java:S117"QRename this local variable to match the regular expression '^[a-
 m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§åµŸ8ÛÏ±Ğò1
 m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§åµŸ8ÛÏ±Ğò1
 m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§åµŸ8ÛÏ±Ğò1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ÓûèĞò1
+G
+java:S1128"*Remove this unused import 'java.sql.Date'.(ÙÀ½Ê8ÓûèĞò1

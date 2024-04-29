@@ -1,38 +1,20 @@
 package org.example;
 
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class GenreDAO
-{
-    public void create(String name) throws SQLException
+public class GenreDAO extends GenericDAO<Genre> {
+    public GenreDAO()
     {
-        Connection connection = Database.getConnection();
-        try(PreparedStatement pstmt = connection.prepareStatement("insert into authors (name) values (?)"))
-        {
-            pstmt.setString(1, name);
-            pstmt.executeUpdate();
-        }
-
+        super("genres");
     }
 
-    public Integer findByName(String name) throws SQLException
+    @Override
+    protected Genre createEntity(ResultSet rs) throws SQLException
     {
-        Connection connection = Database.getConnection();
-        try(Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("select id from authors where name = '" + name + "'"))
-        {
-            return rs.next() ? rs.getInt(1) : null;
-        }
-
-    }
-
-    public Integer findById(int id) throws SQLException
-    {
-        Connection connection = Database.getConnection();
-        try(Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("select id from authors where id = '" + id + "'"))
-        {
-            return rs.next() ? rs.getInt(1) : null;
-        }
+        Genre genre = new Genre();
+        genre.setId(rs.getInt("id"));
+        genre.setName(rs.getString("name"));
+        return genre;
     }
 }
