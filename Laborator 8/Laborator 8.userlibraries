@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.11.2">
+    <archive path="C:/Users/plays/.m2/repository/org/apache/logging/log4j/log4j-slf4j-impl/2.11.2/log4j-slf4j-impl-2.11.2.jar" />
+  </library>
+  <library name="Maven: org.apache.logging.log4j:log4j-core:2.11.2">
+    <archive path="C:/Users/plays/.m2/repository/org/apache/logging/log4j/log4j-core/2.11.2/log4j-core-2.11.2.jar" />
+  </library>
+  <library name="Maven: org.apache.logging.log4j:log4j-api:2.11.2">
+    <archive path="C:/Users/plays/.m2/repository/org/apache/logging/log4j/log4j-api/2.11.2/log4j-api-2.11.2.jar" />
+  </library>
+  <library name="Maven: org.slf4j:slf4j-api:1.7.36">
+    <archive path="C:/Users/plays/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar" />
+  </library>
+  <library name="Maven: com.zaxxer:HikariCP:5.1.0">
+    <archive path="C:/Users/plays/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar" />
+  </library>
+  <library name="Maven: org.checkerframework:checker-qual:3.42.0">
+    <archive path="C:/Users/plays/.m2/repository/org/checkerframework/checker-qual/3.42.0/checker-qual-3.42.0.jar" />
+  </library>
+  <library name="Maven: org.postgresql:postgresql:42.7.3">
+    <archive path="C:/Users/plays/.m2/repository/org/postgresql/postgresql/42.7.3/postgresql-42.7.3.jar" />
+  </library>
+</eclipse-userlibraries>
+
